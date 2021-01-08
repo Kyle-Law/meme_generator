@@ -6,3 +6,17 @@
 3. Run `flask run --host localhost --port 3000 --reload`
 4. Open up `localhost:3000`
 5. Enjoy :)
+
+#### Install Dependencies
+1. `python3 -m venv venv`
+2. `source venv/bin/activate`
+3. `pip install -r requirements.txt`
+
+##### To set requirements.txt
+1. `pip freeze > requirements.txt`
+
+##### To create virtual environment
+1. `python3 -m venv venv`
+
+##### To activate virtual environment
+1. `source venv/bin/activate`

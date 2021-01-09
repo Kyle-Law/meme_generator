@@ -1,6 +1,5 @@
 from typing import List
 
-
 def IngestorInterface(self, parameter_list):
   """
   A Ingestor Interface class.
@@ -11,4 +10,4 @@ def IngestorInterface(self, parameter_list):
 
   @classmethod
   def parse(cls,path:str) -> List:
-    return []
+    pass

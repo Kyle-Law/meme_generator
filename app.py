@@ -3,7 +3,6 @@ import os
 import requests
 from flask import Flask, render_template, abort, request
 
-# @TODO Import your Ingestor and MemeEngine classes
 from QuoteEngine import MemeEngine
 from Ingestors import Ingestor
 
@@ -20,8 +19,6 @@ def setup():
                    './_data/DogQuotes/DogQuotesPDF.pdf',
                    './_data/DogQuotes/DogQuotesCSV.csv']
 
-    # TODO: Use the Ingestor class to parse all files in the
-    # quote_files variable
     quotes = []
     for f in quote_files:
         try:
@@ -31,8 +28,6 @@ def setup():
 
     images_path = "./_data/photos/dog/"
 
-    # TODO: Use the pythons standard library os class to find all
-    # images within the images images_path directory
     imgs = []
     for root, dir, files in os.walk(images_path):
         imgs = [os.path.join(root, name) for name in files]
@@ -64,12 +59,6 @@ def meme_form():
 def meme_post():
     """ Create a user defined meme """
 
-    # @TODO:
-    # 1. Use requests to save the image from the image_url
-    #    form param to a temp local file.
-    # 2. Use the meme object to generate a meme using this temp
-    #    file and the body and author form paramaters.
-    # 3. Remove the temporary saved image.
     img = './created_img.jpg'
     img_url = request.form.get('image_url')
     img_content = requests.get(img_url,stream=True).content

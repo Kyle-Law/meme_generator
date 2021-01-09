@@ -1,11 +1,10 @@
 import os
 
 from QuoteEngine import IngestorInterface
-from Ingestors import TextIngestor, DocxIngestor, PDFIngestor, CSVIngestor
-# from Ingestors import DocxIngestor
-# from Ingestors import PDFIngestor
-# from Ingestors import CSVIngestor
-
+from Ingestors import DocxIngestor
+from Ingestors import PDFIngestor
+from Ingestors import CSVIngestor
+from Ingestors import TextIngestor
 
 class Ingestor(IngestorInterface):
     @classmethod

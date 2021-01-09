@@ -1,6 +1,5 @@
 from docx import Document
 
-
 from QuoteEngine import QuoteModel
 from QuoteEngine import IngestorInterface
 

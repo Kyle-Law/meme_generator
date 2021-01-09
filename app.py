@@ -5,7 +5,7 @@ from flask import Flask, render_template, abort, request
 
 # @TODO Import your Ingestor and MemeEngine classes
 from QuoteEngine import MemeEngine
-from Injestors import Injestor
+from Ingestors import Ingestor
 
 app = Flask(__name__)
 
@@ -22,13 +22,20 @@ def setup():
 
     # TODO: Use the Ingestor class to parse all files in the
     # quote_files variable
-    quotes = None
+    quotes = []
+    for f in quote_files:
+        try:
+            quotes.extend(Ingestor.parse(f))
+        except ValueError as err:
+            print(f"ValueError: {err}")
 
     images_path = "./_data/photos/dog/"
 
     # TODO: Use the pythons standard library os class to find all
     # images within the images images_path directory
     imgs = None
+    for root, dir, files in os.walk(images_path):
+        imgs = [os.path.join(root, name) for name in files]
 
     return quotes, imgs
 

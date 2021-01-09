@@ -6,3 +6,5 @@ __pycache__
 static
 meme_generated
 output
+tmp
+output_cli

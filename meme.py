@@ -1,8 +1,10 @@
 import os
 import random
+from argparse import ArgumentParser
 
 # @TODO Import your Ingestor and MemeEngine classes
 from QuoteEngine import MemeEngine
+from QuoteEngine import QuoteModel
 from Ingestors import Ingestor
 
 
@@ -19,7 +21,7 @@ def generate_meme(path=None, body=None, author=None):
 
         img = random.choice(imgs)
     else:
-        img = path[0]
+        img = path
 
     if body is None:
         quote_files = ['./_data/DogQuotes/DogQuotesTXT.txt',
@@ -36,7 +38,7 @@ def generate_meme(path=None, body=None, author=None):
             raise Exception('Author Required if Body is Used')
         quote = QuoteModel(body, author)
 
-    meme = MemeEngine('./tmp')
+    meme = MemeEngine('./output_cli')
     path = meme.make_meme(img, quote.body, quote.author)
     return path
 

@@ -6,7 +6,6 @@ from flask import Flask, render_template, abort, request
 # @TODO Import your Ingestor and MemeEngine classes
 from QuoteEngine import MemeEngine
 from Ingestors import Ingestor
-# from Ingestors import DocxImporter, CSVImporter
 
 app = Flask(__name__)
 

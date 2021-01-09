@@ -1,12 +1,22 @@
-
-import pandas as pd
+from typing import List
+import pandas
 
 from QuoteEngine import QuoteModel
 from QuoteEngine import IngestorInterface
 
 
 class CSVIngestor(IngestorInterface):
-  @classmethod
-  def parse(cls, path):
-    csv = pd.read_csv(path)
-    return [QuoteModel(**row) for index, row in csv.iterrows()]
+    allowed_extensions = ['csv']
+
+    @classmethod
+    def parse(cls, path: str) -> List[QuoteModel]:
+        if not cls.can_ingest(path):
+            raise Exception('cannot ingest extension')
+        quotes = []
+        df = pandas.read_csv(path,header=0)
+
+        for index, row in df.iterrows():
+            new_quote = QuoteModel(row['body'], row['Author'])
+            quotes.append(new_quote)
+
+        return quotes

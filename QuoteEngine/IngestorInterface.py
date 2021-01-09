@@ -1,5 +1,5 @@
 from typing import List
-from QuoteEngine.QuoteModel import QuoteModel
+from .QuoteModel import QuoteModel
 from abc import ABC, abstractmethod
 
 def IngestorInterface(ABC):
@@ -7,11 +7,13 @@ def IngestorInterface(ABC):
   A Ingestor Interface class.
   """
   allowed_extensions = ['txt','csv','pdf','docx']
+
   @classmethod
-  def can_ingest(cls,path:str) -> bool:
-    return path.split('.')[-1] in allowed_extensions
+  def can_ingest(cls, path: str) -> bool:
+    ext = path.split('.')[-1]
+    return ext in cls.allowed_extensions
 
   @classmethod
   @abstractmethod
-  def parse(cls,path:str) -> List(QuoteModel):
+  def parse(cls, path: str) -> List(QuoteModel):
     pass

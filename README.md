@@ -16,6 +16,9 @@
 1. Download and install the pdftotext CLI tool [HERE](https://www.xpdfreader.com/download.html)
 2. For macOS, run `brew install pkg-config poppler python`, then `pip install pdftotext`
 
+#### Update pip setuptools
+1. Run `pip install -U setuptools`
+
 
 ##### To set requirements.txt
 1. `pip freeze > requirements.txt`

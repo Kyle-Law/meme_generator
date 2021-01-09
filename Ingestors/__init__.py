@@ -1,20 +1,4 @@
-import os
+from .Importer import Importer
 
-from QuoteEngine import IngestorInterface
-from Ingestors import DocxIngestor
-from Ingestors import PDFIngestor
-from Ingestors import CSVIngestor
-from Ingestors import TextIngestor
-
-class Ingestor(IngestorInterface):
-    @classmethod
-    def parse(cls, path):
-        filename, suffix = os.path.splitext(path)
-        if suffix == '.txt':
-          return TextIngestor.parse(path)
-        if suffix == '.docx':
-          return DocxIngestor.parse(path)
-        if suffix == '.pdf':
-          return PDFIngestor.parse(path)
-        if suffix == '.csv':
-          return CSVIngestor.parse(path)
+# from .DocxImporter import DocxImporter
+# from .CSVImporter import CSVImporter

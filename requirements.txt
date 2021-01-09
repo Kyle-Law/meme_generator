@@ -12,6 +12,8 @@ itsdangerous==1.1.0
 Jinja2==2.11.2
 lxml==4.6.2
 MarkupSafe==1.1.1
+numpy==1.19.5
+pandas==1.2.0
 pdftotext==2.1.5
 Pillow==8.1.0
 pycodestyle==2.6.0
@@ -19,7 +21,9 @@ pycosat==0.6.3
 pycparser @ file:///tmp/build/80754af9/pycparser_1594388511720/work
 pyOpenSSL @ file:///tmp/build/80754af9/pyopenssl_1605545627475/work
 PySocks @ file:///opt/concourse/worker/volumes/live/85a5b906-0e08-41d9-6f59-084cee4e9492/volume/pysocks_1594394636991/work
+python-dateutil==2.8.1
 python-docx==0.8.10
+pytz==2020.5
 requests @ file:///tmp/build/80754af9/requests_1592841827918/work
 ruamel-yaml==0.15.87
 six @ file:///opt/concourse/worker/volumes/live/5b31cb27-1e37-4ca5-6e9f-86246eb206d2/volume/six_1605205320872/work

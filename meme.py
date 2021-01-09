@@ -46,5 +46,15 @@ if __name__ == "__main__":
     # path - path to an image file
     # body - quote body to add to the image
     # author - quote author to add to the image
-    args = None
+    parser = ArgumentParser(description="Generate meme ~")
+    parser.add_argument("--path", type=str, required=False, nargs="?",
+                        default=None,
+                        help="Path to the image file")
+    parser.add_argument("--body", type=str, required=False, nargs="?",
+                        default=None,
+                        help="Quote body")
+    parser.add_argument("--author", type=str, required=False, nargs="?",
+                        default=None,
+                        help="Quote author")
+    args = parser.parse_args()
     print(generate_meme(args.path, args.body, args.author))

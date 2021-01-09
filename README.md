@@ -19,6 +19,8 @@
 #### Update pip setuptools
 1. Run `pip install -U setuptools`
 
+#### Using subprocess
+1. Install emoj by `npm install --global emoj` and add the code required to implement `subprocess.Popen` to call this tool from within our Python script. [References](https://docs.python.org/3/library/subprocess.html#subprocess.Popen)
 
 ##### To set requirements.txt
 1. `pip freeze > requirements.txt`

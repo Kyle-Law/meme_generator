@@ -2,11 +2,14 @@ from typing import List
 
 from QuoteEngine import QuoteModel
 from QuoteEngine import IngestorInterface
+
 from .DocxIngestor import DocxIngestor
 from .CSVIngestor import CSVIngestor
+from .PDFIngestor import PDFIngestor
+from .TextIngestor import TextIngestor
 
 class Ingestor(IngestorInterface):
-    ingestors = [DocxIngestor, CSVIngestor]
+    ingestors = [DocxIngestor, CSVIngestor, PDFIngestor, TextIngestor]
 
     @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:

@@ -9,7 +9,7 @@ from Ingestors import Ingestor
 
 app = Flask(__name__)
 
-meme = MemeEngine('./static')
+meme = MemeEngine('./output')
 
 
 def setup():
@@ -33,7 +33,7 @@ def setup():
 
     # TODO: Use the pythons standard library os class to find all
     # images within the images images_path directory
-    imgs = None
+    imgs = []
     for root, dir, files in os.walk(images_path):
         imgs = [os.path.join(root, name) for name in files]
 
@@ -70,13 +70,13 @@ def meme_post():
     # 2. Use the meme object to generate a meme using this temp
     #    file and the body and author form paramaters.
     # 3. Remove the temporary saved image.
-    img = './_data/photos/dog/xander_1.jpg'
+    img = './created_img.jpg'
     img_url = request.form.get('image_url')
     img_content = requests.get(img_url,stream=True).content
     with open(img,'wb') as f:
         f.write(img_content)
     body = request.form.get("body","")
-    author = request.form.get("author","")
+    author = request.form.get("author","anonymous")
     path = meme.make_meme(img,body,author)
     os.remove(img)
 
@@ -84,4 +84,4 @@ def meme_post():
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host='localhost')

@@ -5,6 +5,7 @@ from QuoteEngine import QuoteModel
 from QuoteEngine import IngestorInterface
 
 class DocxIngestor(IngestorInterface):
+    print(IngestorInterface)
     allowed_extensions = ['docx']
 
     @classmethod

@@ -2,7 +2,7 @@ from typing import List
 from .QuoteModel import QuoteModel
 from abc import ABC, abstractmethod
 
-def IngestorInterface(ABC):
+class IngestorInterface(ABC):
   """
   A Ingestor Interface class.
   """

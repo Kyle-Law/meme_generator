@@ -2,14 +2,14 @@ from typing import List
 
 from QuoteEngine import QuoteModel
 from QuoteEngine import IngestorInterface
-from .DocxImporter import DocxImporter
-from .CSVImporter import CSVImporter
+from .DocxIngestor import DocxIngestor
+from .CSVIngestor import CSVIngestor
 
 class Ingestor(IngestorInterface):
-    allowed_extensions = ['docx']
+    ingestors = [DocxIngestor, CSVIngestor]
 
     @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:
-        for importer in importers:
-            if importer.can_ingest(path):
-                return importer.parse(path)
+        for ingestor in cls.ingestors:
+            if ingestor.can_ingest(path):
+                return ingestor.parse(path)
